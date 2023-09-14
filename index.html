@@ -11,7 +11,7 @@
     <div class="progress-bar" :style="`--progress: ${progress}%`"></div>
     <section class="section steps">
       <div class="step" :class="{ active: current === index }" v-for="(step, index) in steps" :key="`step_${step}`" :style="{ zIndex: 999 - (index) }">
-        <div class="step__image" :style="{ backgroundImage: `url(/assets/img/${step.image})` }"></div>
+        <div class="step__image" :style="{ backgroundImage: `url(assets/img/${step.image})` }"></div>
         <div class="step__content">
           <h2 class="h2 mb-0">{{ index + 1 }} - {{ step.title }}?</h2>
           <div class="step__inner">
