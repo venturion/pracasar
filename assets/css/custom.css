@@ -1,0 +1,22 @@
+html, body {
+  min-height: 100vh;
+}
+
+body {
+  background-color: var(--white);
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+}
+
+a,
+a:hover,
+a:focus {
+  text-decoration: none;
+}
+
+#app {
+  width: 100%;
+}
+

@@ -1,0 +1,14 @@
+@import "variables.css";
+@import "fonts.css";
+@import "buttons.css";
+@import "animations.css";
+@import "loader.css";
+@import "/node_modules/bootstrap/dist/css/bootstrap.min.css";
+@import "/node_modules/@fortawesome/fontawesome-free/css/all.min.css";
+@import "texts.css";
+@import "sections.css";
+@import "progressbar.css";
+@import "steps.css";
+@import "score.css";
+@import "custom.css";
+

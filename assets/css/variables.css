@@ -1,0 +1,13 @@
+/**
+ * Cores
+ * */
+
+:root {
+  --white: #fff;
+  --black: #000;
+  --gray-dark: #444;
+  --red: #f00;
+  --green: #3a4;
+  --blue: #3af;
+  --font-heading: Poppins, "sans serif";
+}

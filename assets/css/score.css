@@ -1,0 +1,50 @@
+.score {
+  position: fixed;
+  padding: 10px;
+  right: 20px;
+  top: 20px;
+  border: 2px solid #0002;
+  background-color: var(--white);
+  color: var(--gray-dark);
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  font-size: 1.25rem;
+  font-weight: 700;
+  min-width: 120px;
+  height: 48px;
+  border-radius: 4px;
+  gap: 10px;
+  opacity: 0;
+  animation-name: fadeRight;
+  animation-duration: .5s;
+  animation-delay: .5s;
+  animation-iteration-count: initial;
+  animation-fill-mode: forwards;
+  z-index: 999;
+}
+
+.pontuation {
+  font-size: 2rem;
+  border-radius: 10px;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--green);
+  color: var(--white);
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+.pontuation.danger {
+  background-color: var(--red);
+}
+
+.pontuation.secondary {
+  background-color: var(--gray-dark);
+}
+
+.pontuation.success {
+  background-color: var(--green);
+}

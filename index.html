@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Ela serve pra casar?</title>
+  <link rel="stylesheet" href="/assets/css/app.css">
+</head>
+<body>
+  <div id="app">
+    <div class="progress-bar" :style="`--progress: ${progress}%`"></div>
+    <section class="section steps">
+      <div class="step" :class="{ active: current === index }" v-for="(step, index) in steps" :key="`step_${step}`" :style="{ zIndex: 999 - (index) }">
+        <div class="step__image" :style="{ backgroundImage: `url(/assets/img/${step.image})` }"></div>
+        <div class="step__content">
+          <h2 class="h2 mb-0">{{ index + 1 }} - {{ step.title }}?</h2>
+          <div class="step__inner">
+            <hr class="hr">
+            <div class="step__buttons">
+              <button class="btn btn-lg btn-danger" @click="showModalInfo(step, false)">não</button>
+              <button class="btn-lg btn btn-primary" @click="showModalInfo(step, true)">sim <i class="fa-solid fa-xs fa-chevron-right"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- tela final -->
+      <div class="step" :class="{ active: current === steps.length }" :style="{ zIndex: 990 }">
+        <div class="step__content">
+          <div class="pontuation" :class="{ danger: score <= 60, secondary: score > 60 && score < 80, success: score >= 80 }">
+            <div>{{ score }} pontos</div>
+          </div>
+          <h2 class="h2 mb-0">Fim da pesquisa!</h2>
+          <div class="step__inner text-center">
+            <hr class="hr">
+            <div v-if="score <= 60" class="text-danger"> Você ainda precisa refletir, mudar seu pensamento e escolher melhor sua parceira, pense nisso e tente novamente um outra hora.</div>
+            <div v-else-if="score > 60 && score < 80" class="text-secondary"> Você pode melhorar em alguns aspectos, lembre-se que relacionamento nos dias de hoje é coisa séria não dê um "tiro no escuro", selecione bem sua companheira.
+            </div>
+            <div v-else class="text-success"> Parabéns você está muito bem encaminhado, com a sua mentalidade, tenho certeza que encontrará o amor da tua vida.
+            </div>
+            <hr class="hr">
+            <button type="button" class="btn btn-lg btn-link" @click="reset">Recomeçar</button>
+          </div>
+        </div>
+      </div>
+      <!--// tela final -->
+
+      <!-- score -->
+      <div class="score" v-if="current <= steps.length - 1">
+        <i class="fa solid fa-xs fa-coins"></i>
+        <span>{{ score }}</span>
+      </div>
+      <!--// score -->
+
+      <!-- loader -->
+      <div class="loader" :class="{ active: loading }" v-if="current <= steps.length - 1">
+        <div class="loader__message">
+          <div class="mb-3">
+            {{ steps[current].message }}
+          </div>
+          <hr class="hr">
+          <div class="text-center">
+            <button type="button" class="btn btn-primary" @click="goTo(current + 1, steps[current])">
+              Continuar <i class="fa-solid fas-xs fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!--// loader -->
+
+    </section>
+  </div>
+  <script src="/node_modules/vue/dist/vue.global.js"></script>
+  <script src="/assets/js/app.js"></script>
+</body>
+</html>
