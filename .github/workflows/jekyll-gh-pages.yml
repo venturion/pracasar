@@ -37,10 +37,6 @@ jobs:
           destination: ./_site
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
-      - name: Use Node.js
-        uses: actions/setup-node@v1
-        with: { node-version: '12.x' }
-
 
   # Deployment job
   deploy:
@@ -53,3 +49,7 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3.8.1
+        with:
+          node-version: '12.x'
